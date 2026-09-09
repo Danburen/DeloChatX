@@ -108,10 +108,13 @@ mention-show-title:
 
 # 为原本的玩家Tab替换，每个玩家前面加上显示当前的服务器
 # interval 请注意该选项在玩家多的时候尽量设置较大的数值，玩家越多占用的资源会更大
+# 本插件自 2.1 开始启用pipe line模式对 tab-list 进行刷新调整，刷新间隔将根据代理夫全部的玩家人数反比进行调整
+# 具体计算过程为：刷新间隔 = interval * (1 + (在线人数 / 20) * refresh-ratio)
 tab-list:
   enable: true
-  interval: 1000 #刷新间隔，毫秒为单位 输入0则表示不刷新
-  format: "{server}{prefix}{player}{Suffix}" #显示的每行的每个玩家的tab的格式  可以参考chat的format的占位符以及服务器的占位符
+  refresh-ratio: 0.5 # 动态刷新比例，值越大刷新越慢，为 0 表示固定频率刷新，会限定在 [0, 1] 之间
+  interval: 1000 # 基础刷新间隔，毫秒为单位 输入0则表示不刷新
+  format: "{server}{prefix}{player}{Suffix}" # 显示的每行的每个玩家的tab的格式  可以参考chat的format的占位符以及服务器的占位符
   header: "欢迎加入{proxy} 当前服务器: {server}"
   footer: "在线人数 §8{online}§r / §8{total_online}§r | Ping: §8{ping}"
 

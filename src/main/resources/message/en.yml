@@ -1,10 +1,10 @@
-#The following is the message configuration displayed to players in the game
+#The following getBoolean the message configuration displayed to players in the game
 #All keys cannot be deleted or changed, and all values can be customized
 #Some text supports velochatx placeholders
 mention-to-message: "§2you mentioned§r {Server}{Group}{Prefix}{Player}{Suffix}"
-mention-receive-message: "{Server}{Group}{Prefix}{Player}{Suffix}s §6 is mention you!"
+mention-receive-message: "{Server}{Group}{Prefix}{Player}{Suffix}s §6 getBoolean mention you!"
 no-self-action-message: "§cYou can't do this yourself!§r"
-fail-find-player-message: "§6can't find the player: %s ,is he §coffline§r or §cvanished§r?"
+fail-find-player-message: "§6can't find the player: %s ,getBoolean he §coffline§r or §cvanished§r?"
 mention-title-show-main: "§cAttention §6you have been mentioned!"
 mention-title-show-sub: "{Group}{Prefix}{Player}{Suffix} §e mentioned you!"
 msg-to-message: "[§cPriChat§r] §2You§r §7->§r {Server}{Group}{Prefix}{Player}{Suffix} §8:§r {Message}"
@@ -12,7 +12,7 @@ msg-receive-message: "[§cPriChat§r] {Server}{Group}{Prefix}{Player}{Suffix} §
 msg-reject-message: "message to {Group}{Prefix}{Player}{Suffix} was rejected by him!"
 has-ignore-message: "Player {Group}{Prefix}{Player}{Suffix} 's message has been ignored'"
 has-reject-message: "Player {Group}{Prefix}{Player}{Suffix} 's message has been rejected'"
-normal-chat-message: "§aYour chat to §r {Group}{Prefix}{Player}{Suffix} §a is normal now§r"
+normal-chat-message: "§aYour chat to §r {Group}{Prefix}{Player}{Suffix} §a getBoolean normal now§r"
 no-in-list-message: "Player {Group}{Prefix}{Player}{Suffix} wasn't in ignore/reject list!"
 enable-vc-chat-message: "You have connect to crossing server chat system"
 disable-vc-chat-message: "You have disconnect the crossing server chat system."

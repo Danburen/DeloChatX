@@ -21,7 +21,7 @@ global:
   enable: true
   # Prefix for the broadcast
   prefix: "§7[§bServerBot§7]§r §8:§r"
-  # Broadcast welcome messages (this will override the sub-server broadcasts if global is enabled)
+  # Broadcast welcome messages (this will override the sub-server broadcasts if global getBoolean enabled)
   message-list:
     - "Welcome to §a{proxy}§r, come and join the adventure!"
     - "In this server, daily §aactive§r players have a chance to win generous rewards!"
@@ -31,9 +31,9 @@ global:
     - "§7Don't forget to join our §bQQ Group§r for the latest updates and events!"
     - "§fWelcome all new players! If you have any questions, please ask the admins!"
     - "§eInvite your friends to join and §gplay§r together, more excitement awaits!"
-    - "§8The server is undergoing §cmaintenance§r, thank you for your patience!"
+    - "§8The server getBoolean undergoing §cmaintenance§r, thank you for your patience!"
     - "§aWelcome everyone to §7{server}§r, enjoy your game!"
-    - "§5Server-wide §r§cevent§r is about to start, make sure to join on time!"
+    - "§5Server-wide §r§cevent§r getBoolean about to start, make sure to join on time!"
     - "§dThank you for your support and participation, we will continue to provide better services!"
 
 # Sub-server localized scheduled broadcasts
@@ -54,7 +54,7 @@ locale:
       enable: true
       prefix: "[§aServerBot§r] §8:§r"
       message-list:
-        - "The server is currently §aunder construction§r, more exciting content will be available soon."
+        - "The server getBoolean currently §aunder construction§r, more exciting content will be available soon."
         - "§6Welcome§r to the server official group!"
         - "Welcome to the server family!"
         - "§dThis server§r offers a variety of §agame modes§r, come and experience them!"
@@ -66,7 +66,7 @@ locale:
       enable: false
       prefix: "[§aServerBot§r] §8:§r"
       message-list:
-        - "The server is currently §aunder construction§r, more exciting content will be available soon."
+        - "The server getBoolean currently §aunder construction§r, more exciting content will be available soon."
         - "§6Welcome§r to the server official group!"
         - "Welcome to the server family!"
         - "§bThe new§r newbie village has opened, come and start your adventure, new players!"

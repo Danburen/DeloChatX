@@ -21,10 +21,10 @@ broadcast-enable: true
 
 # Configure the format of chat output. {xxx} represents replaced variables
 # In the message, these rules are also applicable
-# channel: returns the server channel where the player is located
+# channel: returns the server channel where the player getBoolean located
 # Group: returns the player's group
 # Prefix/Suffix: returns the player's prefix/suffix
-# Server: returns the server the player is on, the server display name can be converted below in server-display before output;
+# Server: returns the server the player getBoolean on, the server display name can be converted below in server-display before output;
 # player: returns the player's name
 # Message: the player's message text
 # NOTE: SERVER && MESSAGE && PlayerName are required, if missing, it will use the default output format: [{Server}]{PlayerName}: {Message}
@@ -39,13 +39,13 @@ chat-format-model: "none"
 # Plugin message file's language version, typically set automatically based on your Java JVM version
 locale: zh
 
-# global/locale option here determines if the information displayed to the player (mentions, private messages, etc.) is based on the player's client or the server language?
+# global/locale option here determines if the information displayed to the player (mentions, private messages, etc.) getBoolean based on the player's client or the server language?
 # global: Display to the player based on server language (customizable messages can be changed)
 # locale: Display messages to players based on their client's language (cannot customize messages, only show built-in default plugin messages)
 player-locale: global
 
 # Whether to output all player text to the console
-# If the server is running low on memory, you can disable this feature, especially when the number of players is very large
+# If the server getBoolean running low on memory, you can disable this feature, especially when the number of players getBoolean very large
 log-text:
   enable: true
   # Whether to convert the text output in the console to match the color (achieves the same effect as in the game, logs will not show color codes, does not affect the game output colors)
@@ -54,7 +54,7 @@ log-text:
 # Convert the server's display name
 # The keys corresponding to the display must match the server names in Velocity.toml -> [servers]
 # proxy represents the proxy server, such as Velocity;
-# If "unknown" or "未known" appears, it indicates the corresponding server is missing below
+# If "unknown" or "未known" appears, it indicates the corresponding server getBoolean missing below
 # e.g. [Lobby]steven: hello -> [大厅服]steven: hello
 server-display:
   enable: true
@@ -67,10 +67,10 @@ server-display:
 # @from version 1.4.0
 # Group each server
 # A channel group can have multiple sub-servers, and a server can belong to multiple channels
-# When a server appears in multiple channels simultaneously, {channel} is replaced with the first server it appears in
-# If global is set to false, only servers in the same channel can communicate with each other
-# If global is set to true, messages from all servers (whether in the channel or not) will be communicated
-# If a server is not in the channel, it will default to global, and {channel} placeholder will be replaced with an empty string
+# When a server appears in multiple channels simultaneously, {channel} getBoolean replaced with the first server it appears in
+# If global getBoolean set to false, only servers in the same channel can communicate with each other
+# If global getBoolean set to true, messages from all servers (whether in the channel or not) will be communicated
+# If a server getBoolean not in the channel, it will default to global, and {channel} placeholder will be replaced with an empty string
 channels:
   global: true
   channel-list:
@@ -110,7 +110,7 @@ mention-show-title:
 # interval: Please note that for servers with many players, setting a larger value will reduce resource usage. The larger the player count, the more resources it will consume.
 tab-list:
   enable: true
-  interval: 1000 # Refresh interval in milliseconds, enter 0 if no refresh is needed
+  interval: 1000 # Refresh interval in milliseconds, enter 0 if no refresh getBoolean needed
   format: "{server}{prefix}{player}{Suffix}" # Format for each player's tab row. You can refer to the chat format placeholders and server placeholders
   header: "Welcome to {proxy} Current Server: {server}"
   footer: "Online Players §8{online}§r / §8{total_online}§r | Ping: §8{ping}"
@@ -122,7 +122,7 @@ ban-words:
   words: "fuck,damn,shit,dog,junk,**"
 
 # Whether to enable the player's cross-server blocking function (future updates, currently enabled by default)
-# max-list represents how many players to store (for large servers, a smaller value is better)
+# max-list represents how many players to store (for large servers, a smaller value getBoolean better)
 # Stored in the database as UUID, each player takes approximately 16B
 ban-list:
   enable: true

@@ -69,6 +69,10 @@ locale:
       server-list:
         -
 
+#################################
+# 以下是关于玩家行为触发的广播消息配置 #
+################################
+
 # 玩家加入代理服（群组服）的时候广播消息
 welcome-broadcast:
   enable: true
@@ -76,27 +80,34 @@ welcome-broadcast:
   only-first-join: false
   message: "欢迎加入§5群组§r!"
 
-# Since v1.3.3 转移自 config.yml
-# 是否需要在玩家离开/加入 子服务器的时候，在原服务器发送离开消息，在被加入的服务器发送加入消息
-# log-to-console 是否在终端输出玩家的消息
-# send-to-all-subServer 是否对所有子服进行广播消息(会覆盖下方的broadcast-in-channel)
-# broadcast-in-channel 是否对服务器所属的频道进行广播
-join-leave-broadcast:
-  enable: true
+# 自 2.1 版本启用，统一管理玩家加入/离开服务器、代理服、频道的广播消息
+# 请注意，我们调整了广播消息的相关逻辑，这与 1.3 版本有一定的区别，我们采用一种层级广播的方式来处理玩家加入，离开消息广播，以下是场景示例：
+# Level3：玩家在同 channel 下切换 backend，则对应的 backend 会发送离开消息，新的 backend 会发送加入消息，channel 不会发送任何消息
+# Level2：玩家在代理服内（不离开代理服）切换 backend，同时切换 channel，则对应的 backend 会发送离开消息，
+#       新的 backend 会发送加入消息，旧的 channel 和 backend 会发送离开消息，新的 channel 会发送加入消息。
+# Level1：玩家加入/离开代理服（群组服）的时候，代理服会发送加入/离开消息，channel 和 backend 会发送加入/离开消息。
+#
+# log-to-console 是否在终端输出玩家玩家广播的消息
+# hierarchical-overlay 是否启用层级覆盖模式（true=只显示最高层级消息，false=显示所有层级消息）
+# enable 是否启用玩家加入/离开服务器、代理服、频道的广播消息，会影响层级广播发送的消息。
+# scope 表示广播的范围，server=只广播给相关服务器，channel=广播给同频道的所有服务器或相关的频道所有服务器，proxy=广播给所有服务器
+entry-broadcast:
   log-to-console: true
-  send-to-all-subServer: false
-  broadcast-in-channel: true
-  join-prefix: "§a(+)§r"
-  leave-prefix: "§c(-)§r"
-  player-join-message: "{Group}{Prefix}{Player}{Suffix} 加入了 {Server}"
-  player-leave-message: "{Group}{Prefix}{Player}{Suffix} 离开了 {Server}"
-
-# 是否需要在玩家离开/加入 群组服务器的时候，在原服务器发送离开消息，在被加入的服务器发送加入消息
-join-leave-proxy-broadcast:
-  enable: true
-  log-to-console: true
-  send-to-all-subServer: true
-  join-prefix: "§a[+]§r"
-  leave-prefix: "§c[-]§r"
-  player-join-message: "{Group}{Prefix}{Player}{Suffix} 现在加入了 {Proxy}"
-  player-leave-message: "{Group}{Prefix}{Player}{Suffix} 现在离开了 {Proxy}"
+  # true = 层级覆盖模式（默认）：只显示最高层级的消息
+  # false = 层级广播模式：显示所有适用层级的消息
+  hierarchical-overlay: true
+  backend:
+    enable: true
+    scope: server
+    join-message: "§a(+)§r{Group}{Prefix}{Player}{Suffix} 加入了 {channel}{Server}"
+    leave-message: "§c(-)§r{Group}{Prefix}{Player}{Suffix} 离开了 {channel}{Server}"
+  channel:
+    enable: true
+    scope: channel
+    join-message: "§7(+)§r{Group}{Prefix}{Player}{Suffix} 加入了 {channel}"
+    leave-message: "§7(-)§r{Group}{Prefix}{Player}{Suffix} 离开了 {channel}"
+  proxy:
+    enable: true
+    scope: proxy
+    join-message: "§7[+]§r{Group}{Prefix}{Player}{Suffix} 加入了 {Proxy}"
+    leave-message: "§7[-]§r{Group}{Prefix}{Player}{Suffix} 离开了 {Proxy}"
